@@ -54,21 +54,6 @@ Após a implementação das classes acima, você deve criar uma classe chamada `
 4. Mostrar o novo saldo do cliente, considerando a taxa de rendimento, para aqueles que possuem conta poupança.
 5. Mostrar os dados das contas de um cliente.
 
-## Instruções de Execução
-
-1. **Compilação:**
-   - Navegue até o diretório onde estão os arquivos usando o terminal.
-   - Compile todos os arquivos com o comando:
-     ```bash
-     javac *.java
-     ```
-
-2. **Execução:**
-   - Após compilar, execute o programa com o comando:
-     ```bash
-     java PrincipalContas
-     ```
-
 ## Conclusão
 
 Este projeto ilustra como implementar um sistema simples de contas bancárias utilizando conceitos de orientação a objetos, como herança e encapsulamento, permitindo a criação de contas com diferentes características.
