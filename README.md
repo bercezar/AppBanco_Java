@@ -53,6 +53,3 @@ Após a implementação das classes acima, você deve criar uma classe chamada `
 4. Mostrar o novo saldo do cliente, considerando a taxa de rendimento, para aqueles que possuem conta poupança.
 5. Mostrar os dados das contas de um cliente.
 
-## Conclusão
-
-Este projeto ilustra como implementar um sistema simples de contas bancárias utilizando conceitos de orientação a objetos, como herança e encapsulamento, permitindo a criação de contas com diferentes características.
