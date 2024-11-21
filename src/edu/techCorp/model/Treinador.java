@@ -1,5 +1,21 @@
 package edu.techCorp.model;
 
-public class Treinador {
+import edu.techCorp.model.Interface.Treina;
+
+public class Treinador extends Funcionario implements Treina{
     
+    @Override
+    public void mostrarDetalhes(){
+
+    }
+    @Override
+    public void ensinarTecnologia(){
+
+    }
+    
+    @Override
+    public void motivarEquipe(){
+
+    }
+
 }
