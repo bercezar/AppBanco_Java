@@ -6,6 +6,11 @@ import edu.techCorp.model.Interface.Gerencia;
 
 public class GerenteDesenvolvedor extends Funcionario implements Gerencia, Desenvolve{
     
+
+    public GerenteDesenvolvedor(String nome, double salario){
+        super(nome, salario);
+    }
+
     @Override
     public void mostrarDetalhes(){
 

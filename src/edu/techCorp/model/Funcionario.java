@@ -4,26 +4,31 @@ import java.util.ArrayList;
 
 
 abstract class Funcionario {
-    private ArrayList<String> nome;
-    private ArrayList<Double> salario;
+    private String nome;
+    private Double salario;
 
-    public Funcionario(){
-        nome = new ArrayList<>();
-        salario = new ArrayList<>();
+    public static ArrayList<Funcionario> funcionarios = new ArrayList<>();
+    
+    public Funcionario(String nome, double salario){
+        this.nome = nome;
+        this.salario = salario;
+        funcionarios.add(this);
     }
-
-    public ArrayList<String> getNome(){
+    
+    public String getNome(){
         return nome;
     }
 
-    public ArrayList<Double> getSalario(){
+    public Double getSalario(){
         return salario;
     }
 
-    public void receberAumento(int index, double aumento){
+    public static void aumentarSalario(int index, double aumento){
         // Ele pegará o indice e fará a mudança correspondente a posição no ArrayList
-        if(index >= 0 && index < salario.size()){
-            salario.set(index, salario.get(index) + aumento);
+
+        if(index >= 0 && index < funcionarios.size()){
+            Funcionario funcionario = funcionarios.get(index);
+            funcionario.salario += aumento;
         }
     }
 
