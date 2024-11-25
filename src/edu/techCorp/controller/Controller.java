@@ -1,5 +1,13 @@
 package edu.techCorp.controller;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import edu.techCorp.model.Desenvolvedor;
 import edu.techCorp.model.Funcionario;
 import edu.techCorp.model.Gerente;
@@ -58,4 +66,80 @@ public class Controller {
     public static void aumento(String id ,Double valor){
         Funcionario.aumentarSalario(id, valor);
     }
+
+    public static void salvarFuncionariosEmArquivo(String nomeArquivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
+            for (Funcionario funcionario : Funcionario.funcionarios) {
+                writer.write(funcionario.toString()); 
+                writer.newLine(); 
+            }
+            System.out.println("Dados dos funcionários salvos em: " + nomeArquivo);
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar os dados no arquivo: " + e.getMessage());
+        }
+    }
+    
+    public static void recuperarFuncionariosDeArquivo(String nomeArquivo) {
+        File arquivo = new File(nomeArquivo);
+
+        if (!arquivo.exists()) {
+            System.out.println("O arquivo " + nomeArquivo + " não existe.");
+            return;
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(arquivo))) {
+            String linha;
+            ArrayList<Funcionario> funcionariosRecuperados = new ArrayList<>();
+
+            while ((linha = reader.readLine()) != null) {
+                if (linha.trim().isEmpty()) continue; 
+                
+                String[] dados = linha.split(", ");
+                if (dados.length < 4) {
+                    System.out.println("Linha inválida no arquivo: " + linha);
+                    continue;
+                }
+
+                String id = dados[0].split(": ")[1].trim();
+                String nome = dados[1].split(": ")[1].trim();
+                double salario = Double.parseDouble(dados[2].split(": ")[1].trim());
+                String tipo = dados[3].split(": ")[1].trim();
+
+
+                Funcionario funcionario = null;
+                switch (tipo.toLowerCase()) {
+                    case "gerente":
+                        funcionario = new Gerente(id, nome, salario);
+                        break;
+                    case "treinador":
+                        funcionario = new Treinador(id, nome, salario);
+                        break;
+                    case "desenvolvedor":
+                        funcionario = new Desenvolvedor(id, nome, salario);
+                        break;
+                    case "gerente desenvolvedor":
+                        funcionario = new GerenteDesenvolvedor(id, nome, salario);
+                        break;
+                    default:
+                        System.out.println("Tipo inválido no arquivo: " + tipo);
+                        continue;
+                }
+
+                funcionariosRecuperados.add(funcionario);
+            }
+
+            if (funcionariosRecuperados.isEmpty()) {
+                System.out.println("O arquivo " + nomeArquivo + " está vazio ou não contém dados válidos.");
+            } else {
+                Funcionario.funcionarios.addAll(funcionariosRecuperados);
+                System.out.println("Funcionários recuperados do arquivo " + nomeArquivo + " com sucesso.");
+            }
+
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.err.println("Erro ao converter valores numéricos no arquivo: " + e.getMessage());
+        }
+    }
 }
+

@@ -64,6 +64,7 @@ public class View {
                     break;
                 case "5":
                     System.out.println("# Recuperar Dados de Funcionários de Arquivo # - Opção Selecionada\n");
+                    Controller.recuperarFuncionariosDeArquivo("funcionarios.txt");
                     break;
                 case "6":
                     System.out.println("# Dar aumento # - Opção Selecionada\n");
@@ -73,13 +74,11 @@ public class View {
                     salario = sc.nextDouble();
                     sc.nextLine();
                     Controller.aumento(id, salario);
-
-
-
                     break;
                 case "7":
                     System.out.println("# Encerrar # - Opção Selecionada\n");
                     variable = false;
+                    Controller.salvarFuncionariosEmArquivo("FuncionariosTechCorp");
                     sc.close();
                     break;
             }
