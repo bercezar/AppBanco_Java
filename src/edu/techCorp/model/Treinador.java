@@ -1,11 +1,17 @@
 package edu.techCorp.model;
 
+import java.util.ArrayList;
+
 import edu.techCorp.model.Interface.Treina;
 
 public class Treinador extends Funcionario implements Treina{
     
-    public Treinador(String nome, double salario){
-        super(nome, salario);
+    private ArrayList<Treinador> treinadores = new ArrayList<>();
+
+    public Treinador(String id, String nome, double salario){
+        super(id, nome, salario);
+        treinadores.add(this);
+
     }
 
     @Override
