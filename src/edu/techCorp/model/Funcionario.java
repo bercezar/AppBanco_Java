@@ -3,7 +3,7 @@ package edu.techCorp.model;
 import java.util.ArrayList;
 
 
-abstract class Funcionario {
+public abstract class Funcionario {
     private String id;
     private String nome;
     private Double salario;
@@ -35,21 +35,31 @@ abstract class Funcionario {
         return tipo;
     }
 
-    public static void aumentarSalario(int index, double aumento){
-        // Ele pegará o indice e fará a mudança correspondente a posição no ArrayList
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-        if(index >= 0 && index < funcionarios.size()){
-            Funcionario funcionario = funcionarios.get(index);
-            funcionario.salario += aumento;
+    public void setSalario(Double salario) {
+        this.salario = salario;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public static void aumentarSalario(String id, double aumento){
+        for (Funcionario funcionario : funcionarios) { // Itera pela lista de funcionários
+            if (funcionario.getId().equals(id)) { // Verifica se o ID corresponde
+                funcionario.setSalario(funcionario.getSalario() + aumento); // Atualiza o salário
+                System.out.println("Salário do funcionário com ID " + id + " atualizado para: " + funcionario.getSalario());
+                return; 
+            }
         }
     }
 
-    public static void listarFuncionariosPorTipo(String tipo) {
-        System.out.println("Funcionários do tipo: " + tipo);
+    public static void listarFuncionarios() {
         for (Funcionario func : funcionarios) {
-            if (func.getTipo().equalsIgnoreCase(tipo)) {
-                func.mostrarDetalhes();
-            }
+            System.out.println(func);
         }
     }
 
