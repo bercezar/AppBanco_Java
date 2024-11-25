@@ -18,8 +18,12 @@ public class GerenteDesenvolvedor extends Funcionario implements Gerencia, Desen
 
     @Override
     public void mostrarDetalhes(){
+        for (GerenteDesenvolvedor gerenteDev : gerenteDevs){
+            System.out.println("ID: " + gerenteDev.getId() + ", Nome: " + gerenteDev.getNome() + ", Salario: " + gerenteDev.getSalario());
+        }
 
     }
+
 
     @Override
     public void codar() {

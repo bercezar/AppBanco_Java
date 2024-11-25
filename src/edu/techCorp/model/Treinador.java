@@ -16,8 +16,12 @@ public class Treinador extends Funcionario implements Treina{
 
     @Override
     public void mostrarDetalhes(){
+        for (Treinador treinador : treinadores){
+            System.out.println("ID: " + treinador.getId() + ", Nome: " + treinador.getNome() + ", Salario: " + treinador.getSalario());
+        }
 
     }
+
     @Override
     public void ensinarTecnologia(){
 

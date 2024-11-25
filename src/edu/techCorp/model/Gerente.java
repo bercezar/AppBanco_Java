@@ -6,7 +6,7 @@ import edu.techCorp.model.Interface.Gerencia;
 
 public class Gerente extends Funcionario implements Gerencia{
     
-    private ArrayList<Gerente> gerentes = new ArrayList<>();
+    private static ArrayList<Gerente> gerentes = new ArrayList<>();
 
     public Gerente(String id, String nome, double salario){
         super(id, nome, salario);
@@ -15,6 +15,9 @@ public class Gerente extends Funcionario implements Gerencia{
 
     @Override
     public void mostrarDetalhes(){
+        for (Gerente gerente : gerentes){
+            System.out.println("ID: " + gerente.getId() + ", Nome: " + gerente.getNome() + ", Salario: " + gerente.getSalario());
+        }
 
     }
 

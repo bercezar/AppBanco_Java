@@ -16,8 +16,11 @@ public class Desenvolvedor extends Funcionario implements Desenvolve{
 
     @Override
     public void mostrarDetalhes(){
-
+        for (Desenvolvedor desenvolvedor : desenvolvedores){
+            System.out.println("ID: " + desenvolvedor.getId() + ", Nome: " + desenvolvedor.getNome() + ", Salario: " + desenvolvedor.getSalario());
+        }
     }
+
 
     @Override
     public void codar() {
