@@ -59,9 +59,16 @@ public abstract class Funcionario {
 
     public static void listarFuncionarios() {
         for (Funcionario func : funcionarios) {
-            System.out.println(func);
+            System.out.println("ID: " + func.getId() + ", Nome: " + func.getNome() + ", Salário: " + func.getSalario() + ", Tipo: " + func.getTipo());
         }
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Nome: " + nome + ", Salário: " + salario + ", Tipo: " + tipo;
+    }
+
+    
 
     public abstract void mostrarDetalhes();
 }

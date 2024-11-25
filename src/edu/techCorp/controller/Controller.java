@@ -68,22 +68,24 @@ public class Controller {
     }
 
     public static void salvarFuncionariosEmArquivo(String nomeArquivo) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
+        String caminhoArquivo = "src/edu/techCorp/" + nomeArquivo;
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo))) {
             for (Funcionario funcionario : Funcionario.funcionarios) {
                 writer.write(funcionario.toString()); 
                 writer.newLine(); 
             }
-            System.out.println("Dados dos funcionários salvos em: " + nomeArquivo);
+            System.out.println("Dados dos funcionários salvos em: " + caminhoArquivo);
         } catch (IOException e) {
             System.err.println("Erro ao salvar os dados no arquivo: " + e.getMessage());
         }
     }
     
     public static void recuperarFuncionariosDeArquivo(String nomeArquivo) {
-        File arquivo = new File(nomeArquivo);
+        String caminhoArquivo = "src/edu/techCorp/" + nomeArquivo;
+        File arquivo = new File(caminhoArquivo);
 
         if (!arquivo.exists()) {
-            System.out.println("O arquivo " + nomeArquivo + " não existe.");
+            System.out.println("O arquivo " + caminhoArquivo + " não existe.");
             return;
         }
 
@@ -129,10 +131,10 @@ public class Controller {
             }
 
             if (funcionariosRecuperados.isEmpty()) {
-                System.out.println("O arquivo " + nomeArquivo + " está vazio ou não contém dados válidos.");
+                System.out.println("O arquivo " + caminhoArquivo + " está vazio ou não contém dados válidos.");
             } else {
                 Funcionario.funcionarios.addAll(funcionariosRecuperados);
-                System.out.println("Funcionários recuperados do arquivo " + nomeArquivo + " com sucesso.");
+                System.out.println("Funcionários recuperados do arquivo " + caminhoArquivo + " com sucesso.");
             }
 
         } catch (IOException e) {

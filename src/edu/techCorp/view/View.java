@@ -46,6 +46,7 @@ public class View {
                     break;
                 case "2":
                     System.out.println("# Listar Funcionários # - Opção Selecionada\n");
+                    Controller.listarFuncionarios();
                     break;                
                 case "3":
                     System.out.println("# Atualizar Dados do Funcionário # - Opção Selecionada");
@@ -64,7 +65,7 @@ public class View {
                     break;
                 case "5":
                     System.out.println("# Recuperar Dados de Funcionários de Arquivo # - Opção Selecionada\n");
-                    Controller.recuperarFuncionariosDeArquivo("funcionarios.txt");
+                    Controller.recuperarFuncionariosDeArquivo("FuncionariosTechCorp");
                     break;
                 case "6":
                     System.out.println("# Dar aumento # - Opção Selecionada\n");
