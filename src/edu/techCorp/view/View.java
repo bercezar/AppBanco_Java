@@ -33,7 +33,7 @@ public class View {
                 case "1":
                     System.out.println("# Cadastrar Funcionário # - Opção Selecionada\n");
                     System.out.println("Informe o ID, Nome, Salario e  Tipo: ");
-                    System.out.print("Tipo (Gerente/Treinador): ");
+                    System.out.print("Tipo (Gerente/Treinador...): ");
                     tipo = sc.nextLine();
                     System.out.print("ID: ");
                     id = sc.nextLine();
