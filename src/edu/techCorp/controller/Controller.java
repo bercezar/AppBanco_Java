@@ -88,6 +88,7 @@ public class Controller {
             System.out.println("O arquivo " + caminhoArquivo + " não existe.");
             return;
         }
+        Funcionario.funcionarios.clear();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(arquivo))) {
             String linha;
