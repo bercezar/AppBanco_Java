@@ -1,6 +1,6 @@
-# Programação de Computadores - Universidade LaSalle
+# Programação de Computadores III - Universidade LaSalle
 
-Este repositório reúne projetos desenvolvidos durante a disciplina de **Programação de Computadores**, ministrada pelo professor **Alexandre Neves Louzada** na Universidade LaSalle.  
+Este repositório reúne projetos desenvolvidos durante a disciplina de **Programação de Computadores III**, ministrada pelo professor **Alexandre Neves Louzada** na Universidade LaSalle.  
 O foco principal é o **estudo aprofundado da linguagem Java**, com ênfase nos conceitos de **Programação Orientada a Objetos (POO)**, boas práticas de codificação e padrões de arquitetura como o **MVC (Model-View-Controller)**.
 
 ## Objetivos do Repositório
