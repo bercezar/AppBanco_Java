@@ -13,6 +13,8 @@ A TechCorp precisa de um sistema para gerenciar seus funcionários, que incluem 
 - **Treinadores**: Ensinam novas tecnologias e motivam a equipe.
 - **Gerentes Desenvolvedores**: Combinam responsabilidades de Gerente e Desenvolvedor.
 
+![Logo](https://github.com/bercezar/AppsJava/blob/main/src/edu/techCorp/Captura%20de%20tela%202024-11-25%20213447.png)
+
 ## Estrutura do Projeto
 
 O projeto segue o padrão MVC:
